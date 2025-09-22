@@ -2,15 +2,14 @@
 pragma solidity 0.8.20;
 
 import { HorseStore } from "../../src/horseStoreV1/HorseStore.sol";
-import { IHorseStore } from "../../src/horseStoreV1/interfaces/IHorseStore.sol";
-import { HorseStoreYul } from "../../src/horseStoreV1/HorseStoreYul.sol";
+import { IHorseStoreV1 } from "../../src/horseStoreV1/interface/IHorseStoreV1.sol";
 import { Test, console2 } from "forge-std/Test.sol";
 
-abstract contract Base_TestV1 is Test {
-    IHorseStore public horseStore;
+abstract contract BaseV1Test is Test {
+    IHorseStoreV1 public horseStore;
 
     function setUp() public virtual {
-        horseStore = IHorseStore(address(new HorseStore()));
+        horseStore = IHorseStoreV1(address(new HorseStore()));
     }
 
     function testReadValue() public view {
